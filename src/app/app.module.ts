@@ -16,12 +16,36 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DirectorComponent } from './director/director.component';
+import { GenreComponent } from './genre/genre.component';
+import { UserAccountComponent } from './user-account/user-account.component';
+import { AccountDeleteComponent } from './account-delete/account-delete.component';
+import { AccountUpdateComponent } from './account-update/account-update.component';
+
+const appRoutes: Routes = [
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    MovieCardComponent,
+    WelcomePageComponent,
+    NavBarComponent,
+    DirectorComponent,
+    GenreComponent,
+    AccountDeleteComponent,
+    AccountUpdateComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +59,8 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
     MatCardModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatIconModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]

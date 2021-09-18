@@ -1,0 +1,45 @@
+.navbar {
+   --ceruleanBlue: #4059AD;
+   --ceruleanFrost: #6b9ac4;
+   --mainFont: 'Helvetica', sans-serif;
+   --maxYellowRed: #F4B942;
+   --white: #FFFFFF;
+   font-family: var(--mainFont);
+   border-bottom: 2px solid var(--ceruleanBlue);
+   display: flex; 
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--white);
+ }
+ 
+ 
+
+ .nav-links {
+  cursor: pointer;
+ }
+
+ .nav-links-right{
+  margin-left: auto;
+  padding: 50px;
+ }
+ 
+ a {
+    padding-left: 20px;
+ }
+
+ #myFlixImg {
+  width: 105px;
+ }
+ 
+ .account, .logout {
+   text-decoration: none;
+   color: var(--ceruleanBlue);
+   margin: 2px;
+   font-size: 16px;
+ }
+ 
+ .account:hover, .logout:hover {
+   color: var(--ceruleanFrost);
+ }
+
