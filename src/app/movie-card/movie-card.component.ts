@@ -5,6 +5,7 @@ import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SynopsisComponent } from '../synopsis/synopsis.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -39,10 +40,10 @@ getMovies(): void {
     death: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
-        Name: name,
-        Bio: bio,
-        Birth: birth,
-        Death: death
+        name: name,
+        bio: bio,
+        birth: birth.substr(0, 10),
+        death: death.substr(0, 10)
       }
     });
   }
@@ -50,10 +51,27 @@ getMovies(): void {
   getGenre(name: string,
     description: string,
   ): void {
+    console.log(name)
     this.dialog.open(GenreComponent, {
       data: {
-        Name: name,
-        Description: description,
+        name: name,
+        description: description,
+      }
+    });
+  }
+
+  getSynopsis(
+    title: string,
+    description: string,
+    name: string,
+    genre: string,
+  ): void {
+    this.dialog.open(SynopsisComponent, {
+      data: {
+        title: title,
+        description: description,
+        director: name,
+        genre: genre,
       }
     });
   }

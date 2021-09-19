@@ -28,11 +28,18 @@
                         >
                             Director
                         </button>
+
                         <button
                             mat-button
                             color="primary"
+                            (click)="getSynopsis(
+                                movie.Title,
+                                movie.Description,
+                                movie.Director.Name,
+                                movie.Genre.Name)"
                         >
                             Synopsis
+                            
                         </button>
 
                         <button mat-button class="heartIcon"  (click)="addOrRemoveFavorite(movie._id)">

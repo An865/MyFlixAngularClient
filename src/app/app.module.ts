@@ -26,6 +26,7 @@ import { GenreComponent } from './genre/genre.component';
 import {UserAccountComponent} from './user-account/user-account.component'
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { AccountUpdateComponent } from './account-update/account-update.component';
+import { SynopsisComponent } from './synopsis/synopsis.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     GenreComponent,
     AccountDeleteComponent,
     UserAccountComponent,
-    AccountUpdateComponent
+    AccountUpdateComponent,
+    SynopsisComponent
   ],
   imports: [
     BrowserModule,
