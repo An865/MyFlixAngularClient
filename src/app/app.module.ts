@@ -23,13 +23,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
-import { UserAccountComponent } from './user-account/user-account.component';
+import {UserAccountComponent} from './user-account/user-account.component'
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { AccountUpdateComponent } from './account-update/account-update.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'account', component: UserAccountComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -44,8 +45,8 @@ const appRoutes: Routes = [
     DirectorComponent,
     GenreComponent,
     AccountDeleteComponent,
-    AccountUpdateComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    AccountUpdateComponent
   ],
   imports: [
     BrowserModule,

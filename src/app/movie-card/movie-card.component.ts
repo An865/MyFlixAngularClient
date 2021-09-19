@@ -64,7 +64,7 @@ getMovies(): void {
 
   addOrRemoveFavorite(movieId: string): any {
     if (this.currentFavorite(movieId)) {
-      this.fetchApiData.deleteFavMovies(movieId).subscribe((resp: any) => {
+      this.fetchApiData.deleteFavMovie(movieId).subscribe((resp: any) => {
         this.snackBar.open('Removed from favorites!', 'OK', {
           duration: 2000,
         });
@@ -73,7 +73,8 @@ getMovies(): void {
       return this.favoritemovies.splice(index, 1);
     } else {console.log(this.favoritemovies
       );
-      this.fetchApiData. addToFavoriteMovies(movieId).subscribe((response: any) => {
+      
+      this.fetchApiData.addToFavoriteMovies(movieId).subscribe((response: any) => {
         this.snackBar.open('Added to favorites!', 'OK', {
           duration: 2000,
         });console.log(this.favoritemovies

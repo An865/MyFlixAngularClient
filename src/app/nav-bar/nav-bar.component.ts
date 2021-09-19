@@ -16,8 +16,13 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  toAccount(): void {
+    this.router.navigate(['account'])
+  }
+
   logOutUser(): void {
-    localStorage.clear;
+    localStorage.clear();
     this.router.navigate(['welcome']);
     this.snackBar.open('log out successful', 'OK', {
       duration: 2000
