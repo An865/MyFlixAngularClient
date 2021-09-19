@@ -18,13 +18,21 @@ export class AccountUpdateComponent implements OnInit {
   movies: any = [];
   favorites: any = [];
 
-
+  /**
+   * 
+   * @param fetchApiData 
+   * @param dialogRef 
+   * @param snackBar 
+   */
   constructor(public fetchApiData:FetchApiDataService,    public dialogRef: MatDialogRef<AccountUpdateComponent>,
     public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
   
+  /**
+   * This method will will send inputed data to update user's account in database
+   */
   editUser(): void {
     this.fetchApiData.editUserData(this.userData).subscribe((resp) => {
       this.dialogRef.close();

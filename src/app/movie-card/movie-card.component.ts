@@ -16,17 +16,28 @@ export class MovieCardComponent {
   favoritemovies: any[] = [];
   movies: any[] = [];
 
+  /**
+  * @param fetchApiData
+  * @param dialog
+  * @param snackBar
+  */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     ) { }
 
-ngOnInit(): void {
-  this.getMovies();
-}
+  /**
+  * This method runs on initialization and gets all movies so movie cards can be rendered
+  */
+  ngOnInit(): void {
+    this.getMovies();
+  }
 
-getMovies(): void {
+  /**
+  * This method gets all movies
+  */
+  getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       console.log(this.movies);
@@ -34,6 +45,9 @@ getMovies(): void {
     });
   }
 
+  /**
+  * This method will get's director data
+  */
   getDirector(name: string,
     bio: string,
     birth: string,
@@ -48,6 +62,9 @@ getMovies(): void {
     });
   }
 
+  /**
+  * This method will get's genre data
+  */
   getGenre(name: string,
     description: string,
   ): void {
@@ -60,6 +77,9 @@ getMovies(): void {
     });
   }
 
+  /**
+  * This method will get's movie synopsis, director name, and genre name
+  */
   getSynopsis(
     title: string,
     description: string,
@@ -76,10 +96,18 @@ getMovies(): void {
     });
   }
 
+  /**
+  * This method gets status of wether current movie is in favorite movie area
+  * @returns boolean of whether or not movie is in favorite movie area
+  */
   currentFavorite(movieID: string) {
     return this.favoritemovies.includes(movieID);
   }
 
+  /**
+  * This method adds or removes movie from favorites.
+  * @returns updated array or favorite movie list
+  */
   addOrRemoveFavorite(movieId: string): any {
     if (this.currentFavorite(movieId)) {
       this.fetchApiData.deleteFavMovie(movieId).subscribe((resp: any) => {

@@ -22,7 +22,7 @@ export class UserLoginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '' };
   /**
-   *
+   *  
    * @param fetchApiData
    * @param dialogRef
    * @param snackBar
@@ -37,9 +37,8 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
   /**
-   * login user
+   * This method sends form input to database
    */
-  // This is the function responsible for sending the form inputs to the backend
   userLogin(): void {
   
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {

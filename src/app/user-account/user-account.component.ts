@@ -19,15 +19,27 @@ export class UserAccountComponent implements OnInit {
   movies: any = [];
   favorites: any = [];
 
-  constructor(public fetchApiData: FetchApiDataService,
+  /**
+   * 
+   * @param fetchApiData 
+   * @param dialog 
+   * @param snackBar 
+   */
+  constructor(
+    public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,) { }
 
+  /**
+   * on initialization method gets user's data
+   */
   ngOnInit(): void {
     this.getUser();
   }
 
-  //function to get user data
+  /**
+   * method gets user's data
+   */
   getUser(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -38,7 +50,9 @@ export class UserAccountComponent implements OnInit {
     })
   }
 
-  //function to get all of the movies
+  /**
+   * This method gets all of the movies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((res: any) => {
       this.movies = res;
@@ -46,7 +60,10 @@ export class UserAccountComponent implements OnInit {
     });
   }
 
-  //filter all movies to just favorites, for every movie if its' id is included in favorites then add it to fav movie array
+  /**
+   * This method filter all movies to just favorites, for every movie if its' id is included in favorites then add it to fav movie array
+   * @returns array of favorited movies
+   */
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.user.FavoriteMovies.includes(movie._id)) {
@@ -57,6 +74,9 @@ export class UserAccountComponent implements OnInit {
     return this.favorites;
   }
 
+  /**
+   * This method deletes a particular movies
+   */
   deleteFavMovie(id: string): void {
     this.fetchApiData.deleteFavMovie(id).subscribe((resp: any) => {
       this.snackBar.open('Movie Deleted!', 'OK', {
@@ -68,13 +88,18 @@ export class UserAccountComponent implements OnInit {
     }, 2000);
   }
 
-
+  /**
+   * This method opens component for editing user data
+   */
   editUserData(): void {
     this.dialog.open(AccountUpdateComponent, {
       width: '350px'
     });
   }
  
+  /**
+   * This method opens component for deleting user account
+   */
   deleteUserData(): void {
     this.dialog.open(AccountDeleteComponent, {
       width: '350px'
